@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import  java.awt.event.*;
+// 아래 임포트 2개는 액션이벤트에 쓰임
 
 class FrameCls extends JFrame {
 	ImageIcon img1 = null;
@@ -65,7 +68,7 @@ class FrameCls extends JFrame {
 		imgPanel.add(ilabel1);
 		imgPanel.add(ilabel2);
 		imgPanel.add(ilabel3);
-		
+
 		menuPanel.add(menu1);
 		menuPanel.add(menu1_spin);
 		menuPanel.add(menu2);
@@ -87,9 +90,28 @@ class FrameCls extends JFrame {
 		panel.add(bottomPanel);
 		add(panel);
 		setVisible(true);
+
+		startBtn.addActionListener(new MyAction());
+
 	}
-	
+
+	//시작 버튼을 눌렀을 때의 이벤트
+	private class MyAction implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JButton Butt= (JButton)e.getSource();
+
+			String tfString = tf.getText();   // tf를 문자열로 가져옴
+			int tfInt = Integer.parseInt(tfString);   // tf 문자열을 정수로 바꿈
+
+			//시작 버튼을 눌렀을 떄 그리디 알고리즘으로 계산, 잔돈별로 출력
+			greedy G = new greedy(tfInt,(int)menu1_spin.getModel().getValue(),(int)menu2_spin.getModel().getValue(),(int)menu3_spin.getModel().getValue());
+
+			//총합칸에 값넣기;
+		}
+	}
 }
+
 
 public class FrameView {
 
