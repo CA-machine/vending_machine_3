@@ -91,11 +91,11 @@ class FrameCls extends JFrame {
 		add(panel);
 		setVisible(true);
 
-		startBtn.addActionListener(new MyAction());
+		buyBtn.addActionListener(new MyAction());
 
 	}
 
-	//시작 버튼을 눌렀을 때의 이벤트
+	//구매 버튼을 눌렀을 때의 이벤트
 	private class MyAction implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -104,10 +104,9 @@ class FrameCls extends JFrame {
 			String tfString = tf.getText();   // tf를 문자열로 가져옴
 			int tfInt = Integer.parseInt(tfString);   // tf 문자열을 정수로 바꿈
 
-			//시작 버튼을 눌렀을 떄 그리디 알고리즘으로 계산, 잔돈별로 출력
+			//그리디 알고리즘으로 잔돈 출력
 			greedy G = new greedy(tfInt,(int)menu1_spin.getModel().getValue(),(int)menu2_spin.getModel().getValue(),(int)menu3_spin.getModel().getValue());
 
-			//총합칸에 값넣기;
 		}
 	}
 }
