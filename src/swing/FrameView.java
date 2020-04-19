@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import  java.awt.event.*;
 // 아래 임포트 2개는 액션이벤트에 쓰임
 
