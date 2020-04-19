@@ -91,6 +91,7 @@ class FrameCls extends JFrame {
 		setVisible(true);
 
 		buyBtn.addActionListener(new MyAction());
+		startBtn.addActionListener(new MyAction2());
 
 	}
 
@@ -106,6 +107,19 @@ class FrameCls extends JFrame {
 			//그리디 알고리즘으로 잔돈 출력
 			greedy G = new greedy(tfInt,(int)menu1_spin.getModel().getValue(),(int)menu2_spin.getModel().getValue(),(int)menu3_spin.getModel().getValue());
 
+		}
+	}
+
+	// 시작 버튼 눌렀을때 합계칸에 충금액 출력
+	private class MyAction2 implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JButton jButt = (JButton)e.getSource();
+
+			TotalCost Cost= new TotalCost();
+			int Cost_int = Cost.TotalCost((int)menu1_spin.getModel().getValue(),(int)menu2_spin.getModel().getValue(),(int)menu3_spin.getModel().getValue());
+			String Totalcost_string = Integer.toString(Cost_int);
+			totalCost.setText(Totalcost_string);
 		}
 	}
 }
